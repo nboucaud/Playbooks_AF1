@@ -100,7 +100,7 @@ function DatabaseViews({
           setSelectedViewId={onChangeView}
           viewIds={viewIds}
         />
-        <DatabaseConditions/>
+        <DatabaseConditions />
 
         <div className={'flex h-full w-full flex-1 flex-col overflow-hidden'}>
           <Suspense fallback={skeleton}>
