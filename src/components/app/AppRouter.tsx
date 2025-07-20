@@ -6,8 +6,9 @@ import AppPage from '@/pages/AppPage';
 import TrashPage from '@/pages/TrashPage';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { AIChat } from '@/components/ai-chat';
 
-function AppRouter () {
+function AppRouter() {
   return (
     <Routes>
       <Route element={<AuthLayout />}>
@@ -26,6 +27,10 @@ function AppRouter () {
         <Route
           path={'trash'}
           element={<TrashPage />}
+        />
+        <Route
+          path={'ai'}
+          element={<AIChat chatId={''} />}
         />
 
       </Route>

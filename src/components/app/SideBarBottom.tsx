@@ -1,11 +1,9 @@
 import { IconButton, Tooltip } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { ReactComponent as TemplateIcon } from '@/assets/icons/template.svg';
 import { useNavigate } from 'react-router-dom';
 import { ReactComponent as TrashIcon } from '@/assets/icons/delete.svg';
 import { ReactComponent as AskAIIcon } from '@/assets/icons/ai.svg';
 import { QuickNote } from '@/components/quick-note';
-import AIAssistant from '@/components/editor/components/toolbar/selection-toolbar/actions/AIAssistant';
 
 function SideBarBottom() {
   const { t } = useTranslation();
@@ -23,8 +21,9 @@ function SideBarBottom() {
           <IconButton
             size={'small'}
             onClick={() => {
-              window.open(`${window.location.origin}/app/ai`, '_blank');
+              navigate('/app/ai');
             }}
+
           >
             <AskAIIcon />
           </IconButton>

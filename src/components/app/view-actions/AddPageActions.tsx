@@ -18,8 +18,8 @@ function AddPageActions({ view, onClose }: {
     toView,
   } = useAppHandlers();
 
-  const handleAddPage = useCallback(async(layout: ViewLayout, name?: string) => {
-    if(!addPage) return;
+  const handleAddPage = useCallback(async (layout: ViewLayout, name?: string) => {
+    if (!addPage) return;
     notify.default(
       <span>
         <CircularProgress size={20} />
@@ -29,7 +29,7 @@ function AddPageActions({ view, onClose }: {
     try {
       const viewId = await addPage(view.view_id, { layout, name });
 
-      if(layout === ViewLayout.AIChat) {
+      if (layout === ViewLayout.AIChat) {
         void toView(viewId);
       } else {
         void openPageModal?.(viewId);
@@ -37,7 +37,7 @@ function AddPageActions({ view, onClose }: {
 
       notify.clear();
       // eslint-disable-next-line
-    } catch(e: any) {
+    } catch (e: any) {
       notify.clear();
       notify.error(e.message);
     }
