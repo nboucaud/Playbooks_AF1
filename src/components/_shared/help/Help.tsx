@@ -36,17 +36,6 @@ export default function Help() {
   return (
     <Portal>
       <Box className={'fixed bottom-6 right-6'} sx={{ transform: 'translateZ(0px)', flexGrow: 1 }}>
-        <Tooltip title={t('questionBubble.help')}>
-          <div ref={ref} onClick={() => setOpen(!open)} className={'py-2'}>
-            <div
-              className={
-                'flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-line-border bg-bg-body shadow-md hover:bg-fill-list-hover'
-              }
-            >
-              <SupportIcon className={'h-5 w-5'} />
-            </div>
-          </div>
-        </Tooltip>
         <Popover {...popoverProps} open={open} anchorEl={ref.current} onClose={() => setOpen(false)}>
           <div className={'flex h-fit w-[240px] flex-col gap-1 p-2'}>
             <Button

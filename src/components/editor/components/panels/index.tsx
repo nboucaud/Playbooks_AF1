@@ -6,7 +6,7 @@ import { ReactEditor, useSlateStatic } from 'slate-react';
 import { MentionPanel } from './mention-panel';
 import { SlashPanel } from './slash-panel';
 
-function Panels () {
+function Panels() {
   const [emojiPosition, setEmojiPosition] = React.useState<{
     top: number;
     left: number

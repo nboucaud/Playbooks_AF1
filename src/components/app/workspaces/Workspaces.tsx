@@ -49,17 +49,17 @@ export function Workspaces() {
     setCurrentWorkspace(userWorkspaceInfo?.workspaces.find((workspace) => workspace.id === currentWorkspaceId));
   }, [currentWorkspaceId, userWorkspaceInfo]);
 
-  const handleChange = useCallback(async(selectedId: string) => {
+  const handleChange = useCallback(async (selectedId: string) => {
     setChangeLoading(selectedId);
     try {
       await handleSelectedWorkspace?.(selectedId);
       setOpen(false);
-    } catch(e) {
+    } catch (e) {
       notify.error('Failed to change workspace');
     }
 
     setChangeLoading(null);
-    },
+  },
     [handleSelectedWorkspace]
   );
   const [, setSearchParams] = useSearchParams();
@@ -73,25 +73,25 @@ export function Workspaces() {
   }, [setSearchParams]);
 
   return <>
-      <Button
-        ref={ref}
-        onMouseLeave={() => setHoveredHeader(false)}
-        onMouseEnter={() => setHoveredHeader(true)}
-        onClick={() => setOpen(true)}
-        className={'mx-2 flex w-full cursor-pointer items-center justify-start gap-1 px-1 py-1 text-text-title'}
-      >
-        <div className={'flex items-center gap-1.5 overflow-hidden text-[15px] text-text-title'}>
-          <CurrentWorkspace
-            userWorkspaceInfo={userWorkspaceInfo}
-            selectedWorkspace={currentWorkspace}
-            onChangeWorkspace={handleChange}
-            avatarSize={24}
-          />
+    <Button
+      ref={ref}
+      onMouseLeave={() => setHoveredHeader(false)}
+      onMouseEnter={() => setHoveredHeader(true)}
+      onClick={() => setOpen(true)}
+      className={'mx-2 flex w-full cursor-pointer items-center justify-start gap-1 px-1 py-1 text-text-title'}
+    >
+      <div className={'flex items-center gap-1.5 overflow-hidden text-[15px] text-text-title'}>
+        <CurrentWorkspace
+          userWorkspaceInfo={userWorkspaceInfo}
+          selectedWorkspace={currentWorkspace}
+          onChangeWorkspace={handleChange}
+          avatarSize={24}
+        />
 
-          {hoveredHeader && <ArrowDown className={'h-5 w-5'} />}
-        </div>
-      </Button>
-      <Popover
+        {hoveredHeader && <ArrowDown className={'h-5 w-5'} />}
+      </div>
+    </Button>
+    <Popover
       open={open}
       keepMounted={true}
       anchorEl={ref.current}
@@ -111,7 +111,7 @@ export function Workspaces() {
             changeLoading={changeLoading || undefined}
             onUpdateCurrentWorkspace={(name) => {
               setCurrentWorkspace(prev => {
-                if(!prev) return prev;
+                if (!prev) return prev;
                 return {
                   ...prev,
                   name,
@@ -137,22 +137,7 @@ export function Workspaces() {
           onClick={handleOpenImport}
         >
           <div className={'flex-1 text-left'}>{t('web.importNotion')}</div>
-          <Tooltip
-            title={t('workspace.learnMore')}
-            enterDelay={1000}
-            enterNextDelay={1000}
-          >
-            <IconButton
-              onClick={(e) => {
-                e.stopPropagation();
-                void openUrl('https://docs.appflowy.io/docs/guides/import-from-notion', '_blank');
-              }}
-              size={'small'}
-              className={'mx-2'}
-            >
-              <TipIcon />
-            </IconButton>
-          </Tooltip>
+
         </Button>
         <Divider className={'w-full'} />
         <Button
@@ -166,30 +151,7 @@ export function Workspaces() {
 
         {isOwner && <>
           <Divider className={'w-full'} />
-          <Button
-            size={'small'}
-            startIcon={<UpgradeIcon />}
-            color={'inherit'}
-            onClick={() => {
-              setOpenUpgradePlan(true);
-              setOpen(false);
-            }}
-            className={'justify-start px-2'}
-          >
-            {t('subscribe.changePlan')}
-          </Button>
-          <Button
-            size={'small'}
-            startIcon={<UpgradeAIMaxIcon />}
-            color={'inherit'}
-            onClick={() => {
-              setOpenUpgradeAIMax(true);
-              setOpen(false);
-            }}
-            className={'justify-start px-2'}
-          >
-            {t('subscribe.getAIMax')}
-          </Button>
+
         </>}
       </div>
 

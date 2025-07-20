@@ -35,29 +35,29 @@ function ToolbarActions() {
   const end = useMemo(() => selection ? editor.end(selection) : null, [editor, selection]);
 
   const startBlock = useMemo(() => {
-    if(!start) return null;
+    if (!start) return null;
     try {
       return getBlockEntry(editor, start);
-    } catch(e) {
+    } catch (e) {
       return null;
     }
   }, [editor, start]);
   const endBlock = useMemo(() => {
-    if(!end) return null;
+    if (!end) return null;
     try {
       return getBlockEntry(editor, end);
-    } catch(e) {
+    } catch (e) {
       return null;
     }
   }, [editor, end]);
 
   const isAcrossBlock = useMemo(() => {
-    if(startBlock && endBlock && Path.equals(startBlock[1], endBlock[1])) return false;
+    if (startBlock && endBlock && Path.equals(startBlock[1], endBlock[1])) return false;
     return startBlock?.[0].blockId !== endBlock?.[0].blockId;
   }, [endBlock, startBlock]);
 
   const isCodeBlock = useMemo(() => {
-    if(!start || !end) return false;
+    if (!start || !end) return false;
     const range = { anchor: start, focus: end };
 
     const [codeBlock] = editor.nodes({

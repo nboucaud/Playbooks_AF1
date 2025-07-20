@@ -91,15 +91,15 @@ function AppPage() {
   const viewMeta: ViewMetaProps | null = useMemo(() => {
     return view
       ? {
-          name: view.name,
-          icon: view.icon || undefined,
-          cover: view.extra?.cover || undefined,
-          layout: view.layout,
-          visibleViewIds: [],
-          viewId: view.view_id,
-          extra: view.extra,
-          workspaceId,
-        }
+        name: view.name,
+        icon: view.icon || undefined,
+        cover: view.extra?.cover || undefined,
+        layout: view.layout,
+        visibleViewIds: [],
+        viewId: view.view_id,
+        extra: view.extra,
+        workspaceId,
+      }
       : null;
   }, [view, workspaceId]);
 
@@ -187,47 +187,47 @@ function AppPage() {
       !localStorage.getItem('open_edit_tip')
     ) {
       notify.clear();
-      notify.info({
-        autoHideDuration: null,
-        type: 'info',
-        title: 'Edit in app',
-        message: (
-          <div className={'flex w-full flex-col items-start gap-2'}>
-            <div>{`Editing databases is supported in AppFlowy's desktop and mobile apps`}</div>
-            <div className={'flex items-center gap-2 text-sm text-text-caption'}>
-              <TipIcon className={'h-5 w-5 text-function-warning'} />
-              Don't have AppFlowy?{' '}
-              <a className={'text-fill-default hover:underline'} href={desktopDownloadLink}>
-                Download
-              </a>
-            </div>
-            <div className={'mt-2 flex w-full items-center justify-between max-sm:my-4 max-sm:flex-col'}>
-              <FormControlLabel
-                className={' max-sm:w-full'}
-                value='end'
-                onChange={(_e, value) => {
-                  if (value) {
-                    localStorage.setItem('open_edit_tip', 'true');
-                  } else {
-                    localStorage.removeItem('open_edit_tip');
-                  }
-                }}
-                control={<Checkbox />}
-                label="Don't remind me again"
-              />
-              <Button
-                color={'primary'}
-                className={'max-sm:w-full max-sm:py-4 max-sm:text-base'}
-                onClick={() => window.open(openAppFlowySchema, '_current')}
-                variant={'contained'}
-              >
-                Open in AppFlowy
-              </Button>
-            </div>
-          </div>
-        ),
-        showActions: false,
-      });
+      // notify.info({
+      //   autoHideDuration: null,
+      //   type: 'info',
+      //   title: 'Edit in app',
+      //   message: (
+      //     <div className={'flex w-full flex-col items-start gap-2'}>
+      //       <div>{`Editing databases is supported in AppFlowy's desktop and mobile apps`}</div>
+      //       <div className={'flex items-center gap-2 text-sm text-text-caption'}>
+      //         <TipIcon className={'h-5 w-5 text-function-warning'} />
+      //         Don't have AppFlowy?{' '}
+      //         <a className={'text-fill-default hover:underline'} href={desktopDownloadLink}>
+      //           Download
+      //         </a>
+      //       </div>
+      //       <div className={'mt-2 flex w-full items-center justify-between max-sm:my-4 max-sm:flex-col'}>
+      //         <FormControlLabel
+      //           className={' max-sm:w-full'}
+      //           value='end'
+      //           onChange={(_e, value) => {
+      //             if (value) {
+      //               localStorage.setItem('open_edit_tip', 'true');
+      //             } else {
+      //               localStorage.removeItem('open_edit_tip');
+      //             }
+      //           }}
+      //           control={<Checkbox />}
+      //           label="Don't remind me again"
+      //         />
+      //         <Button
+      //           color={'primary'}
+      //           className={'max-sm:w-full max-sm:py-4 max-sm:text-base'}
+      //           onClick={() => window.open(openAppFlowySchema, '_current')}
+      //           variant={'contained'}
+      //         >
+      //           Open in AppFlowy
+      //         </Button>
+      //       </div>
+      //     </div>
+      //   ),
+      //   showActions: false,
+      // });
     }
   }, [layout]);
 
