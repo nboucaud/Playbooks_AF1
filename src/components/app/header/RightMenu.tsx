@@ -5,7 +5,7 @@ import { Divider, Tooltip } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ShareButton from 'src/components/app/share/ShareButton';
-import { ReactComponent as Logo } from '@/assets/icons/logo.svg';
+import logo from '@/assets/icons/logo.png';
 
 function RightMenu() {
   const { t } = useTranslation();
@@ -19,7 +19,8 @@ function RightMenu() {
       <Divider orientation={'vertical'} className={'mx-2'} flexItem />
       <Tooltip title={t('publish.downloadApp')}>
         <button onClick={() => openOrDownload()}>
-          <Logo className={'h-6 w-6'} />
+          <img className={'h-6 w-6'} src={logo} alt="Logo" />
+
         </button>
       </Tooltip>
     </div>

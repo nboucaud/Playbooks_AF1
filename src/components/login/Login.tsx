@@ -1,9 +1,9 @@
 import MagicLink from '@/components/login/MagicLink';
 import React from 'react';
-import { ReactComponent as Logo } from '@/assets/icons/logo.svg';
+import logo from '@/assets/icons/logo.png';
 import { useTranslation } from 'react-i18next';
 
-export function Login ({ redirectTo }: { redirectTo: string }) {
+export function Login({ redirectTo }: { redirectTo: string }) {
   const { t } = useTranslation();
 
   return (
@@ -15,7 +15,8 @@ export function Login ({ redirectTo }: { redirectTo: string }) {
           }}
           className={'flex w-full cursor-pointer flex-col items-center justify-center gap-5'}
         >
-          <Logo className={'h-9 w-9'} />
+          <img className={'h-9 w-9'} src={logo} alt="Logo" />
+
           <div className={'text-xl font-semibold'}>{t('welcomeTo')} AppFlowy</div>
         </div>
         <MagicLink redirectTo={redirectTo} />

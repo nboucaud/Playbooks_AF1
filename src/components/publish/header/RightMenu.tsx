@@ -2,7 +2,7 @@ import MoreActions from '@/components/_shared/more-actions/MoreActions';
 import { openOrDownload } from '@/utils/open_schema';
 import { Divider, IconButton, Tooltip } from '@mui/material';
 import React, { useCallback, useContext } from 'react';
-import { ReactComponent as Logo } from '@/assets/icons/logo.svg';
+import logo from '@/assets/icons/logo.png';
 import { Duplicate } from '@/components/publish/header/duplicate';
 import { useTranslation } from 'react-i18next';
 import { PublishContext, usePublishContext } from '@/application/publish';
@@ -20,8 +20,7 @@ function RightMenu() {
     const url = `${window.origin}${window.location.pathname}`;
 
     window.open(
-      `${window.origin}/as-template?viewUrl=${encodeURIComponent(url)}&viewName=${viewName || ''}&viewId=${
-        viewId || ''
+      `${window.origin}/as-template?viewUrl=${encodeURIComponent(url)}&viewName=${viewName || ''}&viewId=${viewId || ''
       }`,
       '_blank'
     );
@@ -45,7 +44,8 @@ function RightMenu() {
       <Divider orientation={'vertical'} className={'mx-2'} flexItem />
       <Tooltip title={t('publish.downloadApp')}>
         <button onClick={() => openOrDownload()}>
-          <Logo className={'h-5 w-5'} />
+          <img className={'h-5 w-5'} src={logo} alt="Logo" />
+
         </button>
       </Tooltip>
     </>

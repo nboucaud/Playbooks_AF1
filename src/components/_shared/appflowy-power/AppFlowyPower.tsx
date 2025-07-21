@@ -14,20 +14,7 @@ function AppFlowyPower({ divider, width }: { divider?: boolean; width?: number }
     >
       {divider && <Divider className={'my-0 w-full'} />}
 
-      <div
-        onClick={() => {
-          window.open('https://appflowy.com', '_blank');
-        }}
-        style={{
-          width,
-        }}
-        className={
-          'flex  w-full cursor-pointer items-center justify-center gap-2 py-4 text-sm text-text-title opacity-50'
-        }
-      >
-        Powered by
-        <AppFlowyLogo className={'w-[88px]'} />
-      </div>
+
     </div>
   );
 }

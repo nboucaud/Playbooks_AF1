@@ -11,7 +11,7 @@ import { openOrDownload } from '@/utils/open_schema';
 import { IconButton } from '@mui/material';
 import React, { useCallback } from 'react';
 import { ReactComponent as MenuIcon } from '@/assets/icons/double_arrow_right.svg';
-import { ReactComponent as Logo } from '@/assets/icons/logo.svg';
+import logo from '@/assets/icons/logo.png';
 import { ReactComponent as MoreIcon } from '@/assets/icons/more.svg';
 
 const PublishBreadcrumb = withPublishBreadcrumb(Breadcrumb);
@@ -71,7 +71,8 @@ function MobileTopBar({ variant }: { variant?: UIVariant }) {
       {variant === UIVariant.Publish ? <PublishBreadcrumb /> : <AppBreadcrumb />}
       <div className={'flex items-center gap-4'}>
         <button onClick={() => openOrDownload()}>
-          <Logo className={'h-5 w-5'} />
+          <img className={'h-10 w-10'} src={logo} alt="Logo" />
+
         </button>
         <MobileDrawer
           onOpen={handleOpenMore}

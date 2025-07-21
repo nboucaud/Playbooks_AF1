@@ -57,13 +57,13 @@ export function Outline({
   return (
     <>
       <div className={'flex folder-views w-full flex-1 flex-col pb-[10px] pt-1 px-[8px]'}>
-        <Favorite/>
+        <Favorite />
         {!outline || outline.length === 0 ? <div
-            style={{
-              width: width - 20,
-            }}
-          ><DirectoryStructure/>
-          </div> :
+          style={{
+            width: width - 20,
+          }}
+        ><DirectoryStructure />
+        </div> :
           outline.map((view) => <SpaceItem
             view={view}
             key={view.view_id}
@@ -72,7 +72,8 @@ export function Outline({
             expandIds={expandViewIds}
             toggleExpand={toggleExpandView}
             onClickView={onClickView}
-          />)}
+          />)
+        }
       </div>
       <ViewActionsPopover
         popoverType={popoverType}

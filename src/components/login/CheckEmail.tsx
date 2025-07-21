@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button';
 import React, { useContext, useState } from 'react';
-import { ReactComponent as Logo } from '@/assets/icons/logo.svg';
+import logo from '@/assets/icons/logo.png';
 import { useTranslation } from 'react-i18next';
 
-function CheckEmail ({ email, redirectTo }: {
+function CheckEmail({ email, redirectTo }: {
   email: string;
   redirectTo: string;
 }) {
@@ -17,7 +17,7 @@ function CheckEmail ({ email, redirectTo }: {
         }}
         className={'flex cursor-pointer'}
       >
-        <Logo className={'h-10 w-10'} />
+        <img className={'h-10 w-10'} src={logo} alt="Logo" />
       </div>
       <div className={'text-xl text-text-primary font-semibold'}>
         {t('checkYourEmail')}

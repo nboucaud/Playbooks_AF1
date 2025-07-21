@@ -15,7 +15,7 @@ interface SideBarProps {
   onResizeDrawerWidth: (width: number) => void;
 }
 
-function SideBar ({
+function SideBar({
   drawerWidth,
   drawerOpened,
   toggleOpenDrawer,
