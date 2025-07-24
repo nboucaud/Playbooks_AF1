@@ -17,12 +17,10 @@ function RightMenu() {
       {viewId && <MoreActions viewId={viewId} />}
 
       <Divider orientation={'vertical'} className={'mx-2'} flexItem />
-      <Tooltip title={t('publish.downloadApp')}>
-        <button onClick={() => openOrDownload()}>
-          <img className={'h-6 w-6'} src={logo} alt="Logo" />
+      <button onClick={() => openOrDownload()}>
+        <img className={'h-6 w-6'} src={logo} alt="Logo" />
 
-        </button>
-      </Tooltip>
+      </button>
     </div>
   );
 }

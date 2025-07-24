@@ -32,7 +32,7 @@ function AIAssistant() {
   const addReplaceStyle = useCallback(() => {
     const range = editor.selection;
 
-    if(!range) return;
+    if (!range) return;
 
     addDecorate?.(range, 'line-through  text-text-caption', 'ai-writer');
   }, [addDecorate, editor.selection]);
@@ -40,7 +40,7 @@ function AIAssistant() {
   const addHighLightStyle = useCallback(() => {
     const range = editor.selection;
 
-    if(!range) return;
+    if (!range) return;
 
     addDecorate?.(range, 'bg-content-blue-100', 'ai-writer');
   }, [addDecorate, editor.selection]);
@@ -56,7 +56,7 @@ function AIAssistant() {
   }, []);
 
   const onItemClicked = useCallback((type: AIAssistantType) => {
-    if([AIAssistantType.ImproveWriting, AIAssistantType.FixSpelling, AIAssistantType.MakeLonger, AIAssistantType.MakeShorter].includes(type)) {
+    if ([AIAssistantType.ImproveWriting, AIAssistantType.FixSpelling, AIAssistantType.MakeLonger, AIAssistantType.MakeShorter].includes(type)) {
       addReplaceStyle();
     } else {
       addHighLightStyle();
@@ -66,7 +66,7 @@ function AIAssistant() {
   }, [addHighLightStyle, addReplaceStyle, editor]);
 
   useEffect(() => {
-    if(!toolbarVisible) {
+    if (!toolbarVisible) {
       setOpen(false);
     }
   }, [toolbarVisible]);
@@ -96,7 +96,7 @@ function AIAssistant() {
           tooltip={t('editor.askAI')}
         >
           <div className={'flex items-center justify-center'}>
-            <AskAIIcon className='w-4 h-4'/>
+            <AskAIIcon className='w-4 h-4' />
             <TriangleDownIcon className={'text-icon-on-toolbar w-3 h-5'} />
           </div>
 

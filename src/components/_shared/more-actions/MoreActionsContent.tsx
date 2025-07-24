@@ -12,7 +12,7 @@ import { ReactComponent as TrashIcon } from '@/assets/icons/delete.svg';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-function MoreActionsContent ({
+function MoreActionsContent({
   itemClicked,
 }: {
   itemClicked: (item: {
@@ -42,28 +42,6 @@ function MoreActionsContent ({
         onClick: handleLogin,
       },
 
-      isDark
-        ? {
-          Icon: SunIcon,
-          label: t('settings.appearance.themeMode.light'),
-          onClick: () => {
-            setDark?.(false);
-          },
-        }
-        : {
-          Icon: MoonIcon,
-          label: t('settings.appearance.themeMode.dark'),
-          onClick: () => {
-            setDark?.(true);
-          },
-        },
-      {
-        Icon: ReportIcon,
-        label: t('publish.reportPage'),
-        onClick: () => {
-          void openUrl('https://report.appflowy.io/', '_blank');
-        },
-      },
       {
         Icon: TrashIcon,
         label: t('settings.files.clearCache'),

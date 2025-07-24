@@ -653,9 +653,9 @@ export function SlashPanel({
         isAlignBottom
           ? origins.transformOrigin
           : {
-              vertical: -30,
-              horizontal: origins.transformOrigin.horizontal,
-            }
+            vertical: -30,
+            horizontal: origins.transformOrigin.horizontal,
+          }
       );
     }
   }, [open, panelPosition]);
@@ -690,9 +690,8 @@ export function SlashPanel({
                 handleSelectOption(option.key);
                 option.onClick?.();
               }}
-              className={`scroll-m-2 justify-start hover:bg-content-blue-50 ${
-                selectedOption === option.key ? 'bg-fill-list-hover' : ''
-              }`}
+              className={`scroll-m-2 justify-start hover:bg-content-blue-50 ${selectedOption === option.key ? 'bg-fill-list-hover' : ''
+                }`}
             >
               {option.label}
             </Button>

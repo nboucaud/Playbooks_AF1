@@ -37,32 +37,32 @@ export function AIChat({
   } = useAIChatContext();
 
   const requestInstance = useMemo(() => {
-    if(!service || !workspaceId) return;
+    if (!service || !workspaceId) return;
     const axiosInstance = service.getAxiosInstance();
 
-    if(!axiosInstance) return;
+    if (!axiosInstance) return;
 
     const request = new ChatRequest(workspaceId, chatId, axiosInstance);
 
     const { createViewWithContent } = request;
 
-    request.updateViewName = async(view, name) => {
+    request.updateViewName = async (view, name) => {
       try {
         await updatePage?.(view.view_id, {
           name,
           icon: view.icon || undefined,
         });
         void refreshOutline?.();
-      } catch(error) {
+      } catch (error) {
         return Promise.reject(error);
       }
     };
 
-    request.insertContentToView = async(viewId, data) => {
+    request.insertContentToView = async (viewId, data) => {
       onOpenView(viewId, data);
     };
 
-    request.createViewWithContent = async(parentViewId, name, data) => {
+    request.createViewWithContent = async (parentViewId, name, data) => {
       try {
         const res = await createViewWithContent.apply(request, [parentViewId, name, data]);
 
@@ -70,7 +70,7 @@ export function AIChat({
         onOpenView(res.view_id);
 
         return res;
-      } catch(error) {
+      } catch (error) {
         return Promise.reject(error);
       }
     };
@@ -79,12 +79,12 @@ export function AIChat({
   }, [onOpenView, service, workspaceId, chatId, updatePage, refreshOutline]);
 
   useEffect(() => {
-    if(onRendered) {
+    if (onRendered) {
       onRendered();
     }
   }, [onRendered]);
 
-  if(!requestInstance) return null;
+  if (!requestInstance) return null;
 
   return (
     <div
@@ -123,7 +123,7 @@ export function AIChat({
           <div className={'text-base mb-2'}>{`Chat listings only. For full chat features:`}</div>
           <ul className={'px-2 text-text-caption'}>
             <li>• Use desktop browser</li>
-            <li>• Download AppFlowy's mobile app</li>
+            <li>• Download Create mobile app</li>
           </ul>
         </DialogContent>
         <DialogActions className={'w-full p-4 flex items-center justify-center gap-2'}>

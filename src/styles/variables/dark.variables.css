@@ -1,4 +1,3 @@
-
 :root[data-dark-mode=true] {
     --bg-selection: #2383e247;
     --text-title: #e2e9f2;
@@ -34,9 +33,8 @@
     --content-blue-900: #003d4d;
     --content-on-fill: #1a202c;
     --content-on-tag: #99a6b8;
-
     --bg-body: #1a202c;
-    --bg-base: #232b38;
+    --bg-base: #0A0C0D;
     --bg-mask: #000000B2;
     --bg-tips: #005174;
     --bg-brand: #2c144b;
@@ -78,12 +76,11 @@
     --gradient5: linear-gradient(56.2deg, #5749CA 0%, #BB4A97 100%);
     --gradient6: linear-gradient(180deg, #036FFA 0%, #00B8E5 100%);
     --gradient7: linear-gradient(38.2deg, #F0C6CF 0%, #DECCE2 40.4754%, #CAD3F9 100%);
-    --bg-header: #1a202ccc;
+    --bg-header: #000000;
     --bg-footer: #00000000;
     --note-header: #232b38;
     --billing-primary: #601DAA;
     --billing-primary-hover: #7A2EBF;
     --ai-primary: #D08EED;
     --writer-placeholder: #49CFF4;
-
 }
