@@ -17,7 +17,7 @@ export function Login({ redirectTo }: { redirectTo: string }) {
         >
           <img className={'h-9 w-9'} src={logo} alt="Logo" />
 
-          <div className={'text-xl font-semibold'}>{t('welcomeTo')} AppFlowy</div>
+          <div className={'text-xl font-semibold'}>{t('welcomeTo')} Create</div>
         </div>
         <MagicLink redirectTo={redirectTo} />
       </div>
