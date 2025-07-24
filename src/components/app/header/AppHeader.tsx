@@ -22,7 +22,7 @@ interface AppHeaderProps {
 
 const HEADER_HEIGHT = 48;
 
-export function AppHeader ({
+export function AppHeader({
   onOpenDrawer, openDrawer, onCloseDrawer,
 }: AppHeaderProps) {
   const {
@@ -54,6 +54,7 @@ export function AppHeader ({
     >
 
       <div className={'flex w-full items-center justify-between gap-4 overflow-hidden'}>
+
         {displayMenuButton && (
           <OutlinePopover
             {...{
@@ -91,6 +92,7 @@ export function AppHeader ({
         </div>
         {rendered && <Suspense fallback={null}>
           <RightMenu />
+
         </Suspense>}
 
       </div>
